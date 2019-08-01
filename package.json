@@ -1,0 +1,29 @@
+{
+  "name": "hotkeys",
+  "version": "1.0.0",
+  "description": "A library to handle keybindings as event triggers",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tchesa/hotkeys.git"
+  },
+  "keywords": [
+    "key-bindings",
+    "keyboard-shortcuts",
+    "shortcuts",
+    "hotkeys"
+  ],
+  "author": "tchesa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tchesa/hotkeys/issues"
+  },
+  "homepage": "https://github.com/tchesa/hotkeys#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}
