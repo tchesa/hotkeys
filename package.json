@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/tchesa/hotkeys#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.3"
+    "parcel": "^1.12.3"
   }
 }
