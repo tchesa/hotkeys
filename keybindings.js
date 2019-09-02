@@ -7,8 +7,8 @@ function Keybindings() {
     if (this.pressed.indexOf(key) === -1) {
       this.pressed.push(key)
     }
-    console.log(this.pressed)
-    console.log(this.getHash(this.pressed))
+    // console.log(this.pressed)
+    // console.log(this.getHash(this.pressed))
     this.trigger()
   })
 
@@ -20,12 +20,12 @@ function Keybindings() {
 
   document.addEventListener('blur', () => {
     this.pressed = []
-    console.log(this.pressed)
+    // console.log(this.pressed)
   })
 
   window.addEventListener('blur', () => {
     this.pressed = []
-    console.log(this.pressed)
+    // console.log(this.pressed)
   })
 }
 
@@ -51,7 +51,7 @@ Keybindings.prototype.on = function (command, callback) {
   if (!this.events[hash]) this.events[hash] = []
   if (this.events[hash].indexOf(callback === -1)) {
     this.events[hash].push(callback)
-    console.log('event added')
+    // console.log('event added')
   }
 }
 
@@ -67,7 +67,7 @@ Keybindings.prototype.off = function (command, callback) {
     const index = this.events[hash].indexOf(callback)
     if (index !== -1) {
       this.events[hash].splice(index, 1)
-      console.log('event removed')
+      // console.log('event removed')
       if (this.events[hash].length === 0) delete this.events[hash]
     }
   }
