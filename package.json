@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.js",
+    "build": "parcel build src/hotkeys.js",
     "test": "jest hotkeys.test.js --watch"
   },
   "repository": {

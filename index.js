@@ -1,13 +1,18 @@
-import Hotkeys from './hotkeys'
+import Hotkeys from './src/hotkeys'
 
-(function () {
-  var hotkeys = new Hotkeys()
+var hotkeys = new Hotkeys()
 
-  const myCommand = () => {
-    console.log('myCommand')
-  }
-  hotkeys.on('ctrl+c', myCommand)
-  hotkeys.on('ctrl+v', () => {
-    hotkeys.off('ctrl+c', myCommand)
-  })
-})()
+const myCommand = () => {
+  console.log('myCommand')
+}
+
+const cancelRefreshPage = event => {
+  console.log('refresh page cancelled')
+  event.preventDefault()
+}
+
+hotkeys.on('ctrl+c', myCommand)
+hotkeys.on('ctrl+v', () => {
+  hotkeys.off('ctrl+c', myCommand)
+})
+hotkeys.on('f5', cancelRefreshPage)
