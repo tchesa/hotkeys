@@ -1,4 +1,4 @@
-# keybindings
+# hotkeys
 
 A javascript library to handle keybindings as event triggers
 
