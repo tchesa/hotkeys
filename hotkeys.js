@@ -1,4 +1,4 @@
-function Keybindings() {
+function Hotkeys() {
   this.pressed = []
   this.events = {}
 
@@ -29,18 +29,18 @@ function Keybindings() {
   })
 }
 
-Keybindings.prototype.getHash = function (keycodes) {
+Hotkeys.prototype.getHash = function (keycodes) {
   return keycodes.sort((a, b) => a < b? -1: 1).join('+')
 }
 
-Keybindings.prototype.trigger = function () {
+Hotkeys.prototype.trigger = function () {
   const hash = this.getHash(this.pressed)
   if (this.events[hash]) {
     this.events[hash].forEach(event => event())
   }
 }
 
-Keybindings.prototype.on = function (command, callback) {
+Hotkeys.prototype.on = function (command, callback) {
   const keycodes = this.commandToKeycodes(command)
   if (!keycodes) {
     console.error('Invalid command')
@@ -55,7 +55,7 @@ Keybindings.prototype.on = function (command, callback) {
   }
 }
 
-Keybindings.prototype.off = function (command, callback) {
+Hotkeys.prototype.off = function (command, callback) {
   const keycodes = this.commandToKeycodes(command)
   if (!keycodes) {
     console.error('Invalid command')
@@ -74,7 +74,7 @@ Keybindings.prototype.off = function (command, callback) {
 }
 
 // https://gist.github.com/tylerbuchea/8011573
-Keybindings.prototype.keyCodes = {
+Hotkeys.prototype.keyCodes = {
   'backspace': 8,
   'tab': 9,
   'enter': 13,
@@ -175,7 +175,7 @@ Keybindings.prototype.keyCodes = {
   'singlequote': 222,
 }
 
-Keybindings.prototype.commandToKeycodes = function (command) {
+Hotkeys.prototype.commandToKeycodes = function (command) {
   const keys = command.toLowerCase().split('+')
   const codes = []
   for (let i = 0; i < keys.length; i++) {
@@ -185,4 +185,4 @@ Keybindings.prototype.commandToKeycodes = function (command) {
   return codes
 }
 
-export default Keybindings
+export default Hotkeys

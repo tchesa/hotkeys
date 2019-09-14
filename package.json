@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.js",
-    "test": "jest keybindings.test.js --watch"
+    "test": "jest hotkeys.test.js --watch"
   },
   "repository": {
     "type": "git",

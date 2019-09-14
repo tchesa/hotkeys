@@ -1,13 +1,13 @@
-import Keybindings from './keybindings'
+import Hotkeys from './hotkeys'
 
 (function () {
-  var keybindings = new Keybindings()
+  var hotkeys = new Hotkeys()
 
   const myCommand = () => {
     console.log('myCommand')
   }
-  keybindings.on('ctrl+c', myCommand)
-  keybindings.on('ctrl+v', () => {
-    keybindings.off('ctrl+c', myCommand)
+  hotkeys.on('ctrl+c', myCommand)
+  hotkeys.on('ctrl+v', () => {
+    hotkeys.off('ctrl+c', myCommand)
   })
 })()
