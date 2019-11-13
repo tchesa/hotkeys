@@ -1,6 +1,6 @@
 {
   "name": "@tchesa/hotkeys",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library to handle keybindings as event triggers",
   "main": "src/hotkeys.js",
   "scripts": {
