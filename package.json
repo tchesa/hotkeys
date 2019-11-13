@@ -1,12 +1,13 @@
 {
-  "name": "hotkeys",
+  "name": "@tchesa/hotkeys",
   "version": "1.0.0",
   "description": "A library to handle keybindings as event triggers",
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build src/hotkeys.js",
-    "test": "jest hotkeys.test.js --watch"
+    "test": "jest hotkeys.test.js --watch",
+    "np": "np"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "@babel/preset-env": "^7.5.5",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
+    "np": "^5.1.3",
     "parcel": "^1.12.3"
   }
 }
