@@ -1,16 +1,15 @@
-# hotkeys
-
+# hotkeys [![npm version](https://img.shields.io/npm/v/@tchesa/hotkeys)](https://www.npmjs.com/package/@tchesa/hotkeys)
 A javascript library to handle keybindings as event triggers
 
-### Run
+### Run:
 
 * `npm start`
 
-### Build
+### Build:
 
 * `npm run dist`
 
-### Example
+### Example:
 
 ```javascript
   import Keybindings from './keybindings'
@@ -23,7 +22,7 @@ A javascript library to handle keybindings as event triggers
   keybindings.on('ctrl+c', action) // register an action
 ```
 
-#### Removing the action:
+### Removing the action:
 
 ```javascript
   keybindings.off('ctrl+c', action) // removing added action
