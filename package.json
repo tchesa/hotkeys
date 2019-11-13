@@ -2,7 +2,7 @@
   "name": "@tchesa/hotkeys",
   "version": "1.0.0",
   "description": "A library to handle keybindings as event triggers",
-  "main": "index.js",
+  "main": "src/hotkeys.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build src/hotkeys.js",
