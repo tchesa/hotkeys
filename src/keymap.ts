@@ -1,4 +1,4 @@
-export default {
+const keymap: Record<string, number> = {
   "backspace": 8,
   "tab": 9,
   "enter": 13,
@@ -98,3 +98,5 @@ export default {
   "closebraket": 221,
   "singlequote": 222
 }
+
+export default keymap
