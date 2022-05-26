@@ -1,4 +1,4 @@
-import Hotkeys from './hotkeys';
+import Hotkeys from './index';
 
 test('should add the event', () => {
   const hotkeys = new Hotkeys()
