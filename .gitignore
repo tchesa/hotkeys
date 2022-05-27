@@ -1,3 +1,5 @@
 /.cache
 /node_modules
 /dist
+/.parcel-cache
+/parcel_output

@@ -1,4 +1,4 @@
-import Hotkeys from "../src/hotkeys";
+import Hotkeys from "../src/index";
 
 var hotkeys = new Hotkeys();
 
