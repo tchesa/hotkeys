@@ -3,6 +3,7 @@
     "outDir": "dist",
     "module": "esnext",
     "lib": ["dom", "esnext"],
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,

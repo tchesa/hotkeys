@@ -4,6 +4,7 @@ var hotkeys = new Hotkeys();
 
 const myCommand = () => {
   console.log("myCommand");
+  console.log(hotkeys);
 };
 
 const cancelRefreshPage = (event) => {

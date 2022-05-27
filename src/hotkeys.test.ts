@@ -1,40 +1,38 @@
+import { getCommandHash } from './command-hash';
 import Hotkeys from './index';
 
 test('should add the event', () => {
   const hotkeys = new Hotkeys()
   const command = 'ctrl+c'
-  const keycodes = hotkeys.commandToKeycodes(command)
-  const hash = hotkeys.getHash(keycodes)
-  hotkeys.on(command, () => console.log('copy'))
-  expect(hotkeys.events[hash].length).toBe(1)
+  const hash = getCommandHash(command)
+  hotkeys.on(command, jest.fn())
+  expect(hotkeys.events[hash!].length).toBe(1)
 })
 
 test('should remove added event', () => {
   const hotkeys = new Hotkeys()
   const command = 'ctrl+c'
-  const keycodes = hotkeys.commandToKeycodes(command)
-  const hash = hotkeys.getHash(keycodes)
-  const copyEvent = () => console.log('copy')
+  const hash = getCommandHash(command)
+  const copyEvent = jest.fn()
   hotkeys.on(command, copyEvent)
-  expect(hotkeys.events[hash].length).toBe(1)
+  expect(hotkeys.events[hash!].length).toBe(1)
   hotkeys.off(command, copyEvent)
-  expect(hotkeys.events[hash]).toBeUndefined()
+  expect(hotkeys.events[hash!]).toBeUndefined()
 })
 
 test('should remove added event and keep the others', () => {
   const hotkeys = new Hotkeys()
   const command = 'escape'
-  const keycodes = hotkeys.commandToKeycodes(command)
-  const hash = hotkeys.getHash(keycodes)
-  const firstEvent = () => console.log('first event')
-  const secondEvent = () => console.log('second event')
+  const hash = getCommandHash(command)
+  const firstEvent = jest.fn()
+  const secondEvent = jest.fn()
   hotkeys.on(command, firstEvent)
-  expect(hotkeys.events[hash].length).toBe(1)
+  expect(hotkeys.events[hash!].length).toBe(1)
   hotkeys.on(command, secondEvent)
-  expect(hotkeys.events[hash].length).toBe(2)
+  expect(hotkeys.events[hash!].length).toBe(2)
   hotkeys.off(command, firstEvent)
-  expect(hotkeys.events[hash].length).toBe(1)
-  expect(hotkeys.events[hash][0]).toBe(secondEvent)
+  expect(hotkeys.events[hash!].length).toBe(1)
+  expect(hotkeys.events[hash!][0]).toBe(secondEvent)
 })
 
 test('should trigger the event', () => {

@@ -1,4 +1,4 @@
-import keymap from './keymap'
+import { getCommandHash } from './command-hash'
 
 type Callback = (event: KeyboardEvent) => void
 
@@ -46,13 +46,13 @@ class Hotkeys {
   }
 
   public on(command: string, callback: Callback) {
-    const keycodes = this.commandToKeycodes(command)
-    if (!keycodes) {
+    const hash = getCommandHash(command)
+
+    if (!hash) {
       console.error('Invalid command')
       return
     }
 
-    const hash = this.getHash(keycodes)
     if (!this.events[hash]) this.events[hash] = []
     if (this.events[hash].indexOf(callback) === -1) {
       this.events[hash].push(callback)
@@ -61,13 +61,13 @@ class Hotkeys {
   }
 
   public off(command: string, callback: Callback) {
-    const keycodes = this.commandToKeycodes(command)
-    if (!keycodes) {
+    const hash = getCommandHash(command)
+
+    if (!hash) {
       console.error('Invalid command')
       return
     }
 
-    const hash = this.getHash(keycodes)
     if (this.events[hash]) {
       const index = this.events[hash].indexOf(callback)
       if (index !== -1) {
@@ -76,15 +76,6 @@ class Hotkeys {
         if (this.events[hash].length === 0) delete this.events[hash]
       }
     }
-  }
-
-  public commandToKeycodes(command: string) {
-    const keys = command.toLowerCase().split('+')
-    const codes: number[] = []
-    keys.forEach(key => {
-      if (keymap[key]) codes.push(keymap[key])
-    })
-    return codes
   }
 }
 
