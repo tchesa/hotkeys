@@ -3,10 +3,13 @@ import { getCommandHash } from './command-hash'
 type Callback = (event: KeyboardEvent) => void
 
 class Hotkeys {
-  pressed: number[] = []
-  events: Record<string, Array<Callback>> = {}
+  pressed: number[]
+  events: Record<string, Array<Callback>>
 
   constructor() {
+    this.pressed = []
+    this.events = {}
+
     document.addEventListener('keydown', e => {
       const key = e.which || e.keyCode
       if (this.pressed.indexOf(key) === -1) {
