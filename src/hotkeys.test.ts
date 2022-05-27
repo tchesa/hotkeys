@@ -39,7 +39,7 @@ test('should trigger the event', () => {
   const hotkeys = new Hotkeys()
   let triggered = false
   hotkeys.on('c', () => triggered = true)
-  const event = new KeyboardEvent('keydown', { 'keyCode': 67 }) // keycode for key 'C'
+  const event = new KeyboardEvent('keydown', { 'key': 'c' })
   document.dispatchEvent(event)
   expect(triggered).toBe(true)
 })

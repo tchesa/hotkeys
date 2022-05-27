@@ -1,4 +1,5 @@
 import { getCommandHash } from './command-hash'
+import keycode from 'keycode'
 
 type Callback = (event: KeyboardEvent) => void
 
@@ -11,17 +12,17 @@ class Hotkeys {
     this.events = {}
 
     document.addEventListener('keydown', e => {
-      const key = e.which || e.keyCode
+      const key = keycode(e.key)
       if (this.pressed.indexOf(key) === -1) {
         this.pressed.push(key)
       }
-      // console.log(this.pressed)
+
       // console.log(this.getHash(this.pressed))
       this.trigger(e)
     })
 
     document.addEventListener('keyup', e => {
-      const key = e.which || e.keyCode
+      const key = keycode(e.key)
       if (this.pressed.indexOf(key) !== -1) this.pressed.splice(this.pressed.indexOf(key), 1)
       // console.log(this.pressed)
     })
